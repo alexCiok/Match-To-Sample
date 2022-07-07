@@ -1,2 +1,0 @@
-Subject ID	Delay	Accuracy	Accuracy (SD)	Avg RT	Avg RT (SD)	Median RT	Number of Trials	Date/Time	
-18-014_CAS001-1-07242019 Difficult	0	0.967	0.183	934.2	262.822	871.5	30	07/24/2019 10:50:01

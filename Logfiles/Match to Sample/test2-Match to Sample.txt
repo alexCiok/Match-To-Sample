@@ -1,8 +1,0 @@
-Block Name	Block Number	Trial Number	Study Grid	Distractor Grid	Correct Side	Delay	Response	Accuracy	RT
-Practice	0	1	211211111	111212111	Right	0	2	rm_hit	1396.4
-Practice	0	2	221112111	211112112	Right	0	2	rm_hit	569.4
-Practice	0	3	212211112	112221112	Left	0	1	rm_hit	843.6
-Practice	0	4	211212112	211212211	Right	0	2	rm_hit	1112.5
-Practice	0	5	111111221	111112121	Right	0	2	rm_hit	1027.7
-Practice	0	6	211111221	212111211	Right	0	2	rm_hit	1526.8
-
