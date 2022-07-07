@@ -1,0 +1,58 @@
+Scenario - Match to Sample
+Logfile written - 06/16/2022 13:31:59
+
+Subject	Trial	Event Type	Code	event_cond(str)	block_name(str)	block_number(num)	trial_number(num)	study_grid(str)	dist_grid(str)	study_side(str)	delay(num)	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+	0	Pulse	84									170206	170206	1
+	2	Picture	ITI	ITI								310414	0	1	2004	1	0	next	other	0
+	3	Picture	Study	Study								312417	0	1	10017	2	0	next	other	0
+	4	Response	1									344093	21659	1
+	4	Response	2									347433	24999	1
+	5	Picture	Stim;Main;1;1;122212111;121212112;Left;0	Stim	Main	1	1	122212111	121212112	Left	0	352492	0	1	40075	1	0	next	hit	7
+	5	Response	1									357353	4861	1
+	5	Response	2									362874	10382	1
+	5	Response	2									368303	15811	1
+	5	Response	1									374504	22011	1
+	5	Response	1									387783	35291	1
+	6	Picture	ITI	ITI								392567	0	1	2004	1	0	next	other	0
+	7	Picture	Study	Study								394571	0	1	10019	1	0	next	other	0
+	9	Picture	Stim;Main;1;2;111212211;112212111;Right;0	Stim	Main	1	2	111212211	112212111	Right	0	434646	0	1	40075	1	0	next	hit	15
+	9	Response	2									456963	22317	1
+	10	Picture	ITI	ITI								474721	0	1	2004	1	0	next	other	0
+	11	Picture	Study	Study								476724	0	1	10019	1	0	next	other	0
+	13	Picture	Stim;Main;1;3;222211111;212211121;Left;0	Stim	Main	1	3	222211111	212211121	Left	0	516799	0	1	40075	1	0	next	hit	19
+	13	Response	1									527982	11183	1
+	14	Picture	ITI	ITI								556874	0	1	2004	1	0	next	other	0
+	15	Picture	Study	Study								558878	0	1	10019	1	0	next	other	0
+	17	Picture	Stim;Main;1;4;221211121;121211122;Left;0	Stim	Main	1	4	221211121	121211122	Left	0	598953	0	1	40075	1	0	next	hit	23
+	17	Response	1									609262	10309	1
+	18	Picture	ITI	ITI								639028	0	1	2004	1	0	next	other	0
+	19	Picture	Study	Study								641032	0	1	10019	1	0	next	other	0
+	21	Picture	Stim;Main;1;5;221121111;221112111;Right;0	Stim	Main	1	5	221121111	221112111	Right	0	681107	0	1	40075	1	0	next	hit	27
+	21	Response	2									694701	13594	1
+	22	Picture	ITI	ITI								721181	0	1	2004	1	0	next	other	0
+	23	Picture	Study	Study								723185	0	1	10019	1	0	next	other	0
+	25	Picture	Stim;Main;1;6;112211221;122211211;Right;0	Stim	Main	1	6	112211221	122211211	Right	0	763260	0	1	40075	1	0	next	hit	31
+	25	Response	2									776060	12800	1
+	26	Response	2									814130	10794	1
+	27	Picture	ITI	ITI								943430	0	1	2004	1	0	next	other	0
+	28	Picture	Study	Study								945434	0	1	10019	1	0	next	other	0
+	30	Picture	Stim;Main;1;1;111121211;211121111;Left;0	Stim	Main	1	1	111121211	211121111	Left	0	985509	0	1	40075	1	0	next	hit	36
+	30	Response	1									997158	11648	1
+	31	Picture	ITI	ITI								1025584	0	1	2004	1	0	next	other	0
+	32	Picture	Study	Study								1027588	0	1	10019	1	0	next	other	0
+	34	Picture	Stim;Main;1;2;112112122;111212122;Right;0	Stim	Main	1	2	112112122	111212122	Right	0	1067663	0	1	40075	1	0	next	hit	40
+	34	Response	2									1075577	7914	1
+	35	Picture	ITI	ITI								1107738	0	1	2004	1	0	next	other	0
+	36	Picture	Study	Study								1109741	0	1	10019	1	0	next	other	0
+	38	Picture	Stim;Main;1;3;121221111;111221121;Left;0	Stim	Main	1	3	121221111	111221121	Left	0	1149816	0	1	40075	1	0	next	hit	44
+	38	Response	1									1163087	13271	1
+	39	Picture	ITI	ITI								1189891	0	1	2004	1	0	next	other	0
+	40	Picture	Study	Study								1191895	0	1	10019	1	0	next	other	0
+	42	Picture	Stim;Main;1;4;122111111;112112111;Left;0	Stim	Main	1	4	122111111	112112111	Left	0	1231970	0	1	40075	1	0	next	miss	0
+	43	Picture	ITI	ITI								1272045	0	1	2004	1	0	next	other	0
+	44	Picture	Study	Study								1274049	0	1	10019	1	0	next	other	0
+	46	Picture	Stim;Main;1;5;122211112;121211212;Right;0	Stim	Main	1	5	122211112	121211212	Right	0	1314123	0	1	40075	1	0	next	miss	0
+	47	Picture	ITI	ITI								1354198	0	1	2004	1	0	next	other	0
+	48	Picture	Study	Study								1356202	0	1	12023	1	0	next	other	0
+	48	Quit										1359617	3415	NA

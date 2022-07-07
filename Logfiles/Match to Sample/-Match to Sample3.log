@@ -1,0 +1,28 @@
+Scenario - Match to Sample
+Logfile written - 06/23/2022 08:57:49
+
+Subject	Trial	Event Type	Code	event_cond(str)	block_name(str)	block_number(num)	trial_number(num)	study_grid(str)	dist_grid(str)	study_side(str)	delay(num)	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+	0	Pulse	84									21913	21913	1
+	2	Picture	ITI	ITI								162008	0	1	1998	1	0	next	other	0
+	3	Picture	Study	Study								164006	0	1	9990	1	0	next	other	0
+	3	Response	1									169174	5168	1
+	4	Response	2									176728	2732	1
+	5	Picture	Stim;Main;1;1;112212111;111222111;Left;0	Stim	Main	1	1	112212111	111222111	Left	0	204133	0	1	39961	1	0	next	hit	7
+	5	Response	1									217679	13546	1
+	6	Picture	ITI	ITI								244094	0	1	1998	1	0	next	other	0
+	7	Picture	Study	Study								246092	0	1	9990	1	0	next	other	0
+	9	Picture	Stim;Main;1;2;121211111;121111121;Left;0	Stim	Main	1	2	121211111	121111121	Left	0	286219	0	1	39961	1	0	next	miss	0
+	10	Picture	ITI	ITI								326180	0	1	1998	1	0	next	other	0
+	11	Picture	Study	Study								328178	0	1	9990	1	0	next	other	0
+	13	Picture	Stim;Main;1;3;212121121;211121221;Right;0	Stim	Main	1	3	212121121	211121221	Right	0	368306	0	1	39961	1	0	next	miss	0
+	14	Picture	ITI	ITI								408267	0	1	1998	1	0	next	other	0
+	15	Picture	Study	Study								410265	0	1	9990	1	0	next	other	0
+	17	Picture	Stim;Main;1;4;212111112;112112112;Right;0	Stim	Main	1	4	212111112	112112112	Right	0	450392	0	1	39961	1	0	next	miss	0
+	18	Picture	ITI	ITI								490353	0	1	1998	1	0	next	other	0
+	19	Picture	Study	Study								492351	0	1	9990	1	0	next	other	0
+	21	Picture	Stim;Main;1;5;111122121;121121121;Left;0	Stim	Main	1	5	111122121	121121121	Left	0	532478	0	1	39961	1	0	next	miss	0
+	22	Picture	ITI	ITI								572439	0	1	1998	1	0	next	other	0
+	23	Picture	Study	Study								574437	0	1	9990	1	0	next	other	0
+	25	Picture	Stim;Main;1;6;122212111;122221111;Right;0	Stim	Main	1	6	122212111	122221111	Right	0	614565	0	1	39961	1	0	next	miss	0
+	26	Quit										746564	92038	NA

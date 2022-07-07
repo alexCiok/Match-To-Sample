@@ -1,0 +1,11 @@
+Scenario - Match to Sample
+Logfile written - 06/23/2022 09:13:52
+
+Subject	Trial	Event Type	Code	event_cond(str)	block_name(str)	block_number(num)	trial_number(num)	study_grid(str)	dist_grid(str)	study_side(str)	delay(num)	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+	1	Picture	ITI	ITI								333	0	1	1998	1	0	next	other	0
+	2	Picture	Study	Study								2331	0	1	9990	1	0	next	other	0
+	4	Picture	Stim;Practice;0;1;1122111111111111111111111;1112111111111111111211111;Right;0	Stim	Practice	0	1	1122111111111111111111111	1112111111111111111211111	Right	0	42458	0	1	39961	1	0	next	miss	0
+	5	Picture	ITI	ITI								82419	0	1	1998	1	0	next	other	0
+	6	Picture	Study	Study								84417	0	1	9990	1	0	next	other	0
+	7	Quit										96172	1765	NA

@@ -1,0 +1,291 @@
+# ---------------------------------------------------------------------
+# public parameters
+
+rgb_color btn_button_color = rgb_color( 0,0,255 );
+
+double btn_up_down_size = 50;
+double btn_up_down_font_size = 12;
+rgb_color btn_up_down_font_color = rgb_color( 255,255,255 );
+rgb_color btn_up_down_lock_color = rgb_color( 160,160,160 );
+double btn_up_down_spacing = 10;
+double btn_up_down_middle_space = 10;
+
+double btn_toggle_height = 30;
+double btn_toggle_width = 100;
+
+double btn_title_font_size = 12;
+rgb_color btn_title_color = rgb_color( 255,255,255 );
+
+double btn_value_font_size = 12;
+rgb_color btn_value_color = rgb_color( 255,255,255 );
+
+rgb_color btn_button_label_color = rgb_color( 255,255,255 );
+double btn_button_label_font_size = 12;
+
+double btn_x_position = 0;
+double btn_y_position = 200;
+
+double btn_spacing = 30;
+
+int btn_pre_repeat_time = 500;
+int btn_repeat_period = 100;
+
+double cursor_size = 1.5;
+rgb_color cursor_color = rgb_color( 255,0,0 );
+
+# the values
+# for "toggle" type buttons, the value will be 0/1
+array<double> btn_values[0];
+
+# ---------------------------------------------------------------------
+# private variables and functions - do not access directly
+
+int BTN_MONITORING = 1;
+int BTN_REPEATING = 2;
+int btn_state = BTN_MONITORING;
+int btn_repeat_time;
+int btn_down_index;
+bool btn_down_increasing;
+
+int BTN_STEP = 1;
+int BTN_MIN = 2;
+int BTN_MAX = 3;
+array<double> btn_parameters[0][3];
+
+array<text> btn_texts[0];
+array<text> btn_up_down_texts[0][0];
+array<string> btn_toggle_labels[0][2];
+
+int btn_response_count = 0;
+
+int BTN_MIN_X = 1;
+int BTN_MIN_Y = 2;
+int BTN_MAX_X = 3;
+int BTN_MAX_Y = 4;
+int BTN_TYPE = 5;
+int BTN_INDEX = 6;
+int BTN_TOGGLE_TYPE = 1;
+int BTN_UP_TYPE = 2;
+int BTN_DOWN_TYPE = 3;
+int BTN_INCREASE = 2;
+int BTN_DECREASE = 1;
+array<double> btn_buttons[0][7];
+
+# --- sub btn_adjust_up_down_value
+
+sub 
+	btn_adjust_up_down_value( int i, bool increase ) 
+begin
+	if ( increase ) then
+		btn_values[i] = btn_values[i] + btn_parameters[i][BTN_STEP];
+		if ( btn_values[i] > btn_parameters[i][BTN_MAX] ) then
+			btn_values[i] = btn_parameters[i][BTN_MAX]
+		end
+	else
+		btn_values[i] = btn_values[i] - btn_parameters[i][BTN_STEP];
+		if ( btn_values[i] < btn_parameters[i][BTN_MIN] ) then
+			btn_values[i] = btn_parameters[i][BTN_MIN]
+		end
+	end;
+	btn_texts[i].set_caption( string( round( btn_values[i], 2 ) ), true );
+	
+	if ( btn_values[i] == btn_parameters[i][BTN_MIN] ) then
+		btn_up_down_texts[i][BTN_DECREASE].set_font_color( btn_up_down_lock_color );
+	elseif ( btn_values[i] == btn_parameters[i][BTN_MAX] ) then
+		btn_up_down_texts[i][BTN_INCREASE].set_font_color( btn_up_down_lock_color );
+	else
+		btn_up_down_texts[i][BTN_DECREASE].set_font_color( btn_up_down_font_color );
+		btn_up_down_texts[i][BTN_INCREASE].set_font_color( btn_up_down_font_color );
+	end;
+	btn_up_down_texts[i][BTN_DECREASE].redraw();
+	btn_up_down_texts[i][BTN_INCREASE].redraw();
+
+end;
+
+sub 
+	btn_adjust_toggle_value( int i ) 
+begin
+	btn_values[i] = ( int( btn_values[i] ) + 1 ) % 2;
+	btn_texts[i].set_caption( btn_toggle_labels[i][int( btn_values[i] ) + 1], true )
+end;
+
+sub 
+	text btn_create_up_down_button( string caption ) 
+begin
+	text t = new text;
+	t.set_font_color( btn_up_down_font_color );
+	t.set_font_size( btn_up_down_font_size );
+	t.set_background_color( btn_button_color );
+	t.set_width( btn_up_down_size );
+	t.set_height( btn_up_down_size );
+	t.set_caption( caption );
+	t.redraw();
+	return t
+end;
+
+sub 
+	btn_update( double x, double y, array<int,1>& changes ) 
+begin
+	loop 
+		int i = 1 
+	until 
+		i > btn_buttons.count() 
+	begin
+		if ( ( x >= btn_buttons[i][BTN_MIN_X] ) &&
+			( x <= btn_buttons[i][BTN_MAX_X] ) &&
+			( y >= btn_buttons[i][BTN_MIN_Y] ) &&
+			( y <= btn_buttons[i][BTN_MAX_Y] ) )
+		then
+			int index = int( btn_buttons[i][BTN_INDEX] );
+			changes.add( index );
+			if ( btn_buttons[i][BTN_TYPE] == BTN_TOGGLE_TYPE ) then
+				btn_adjust_toggle_value( index )
+			else
+				btn_state = BTN_REPEATING;
+				btn_repeat_time = clock.time() + btn_pre_repeat_time;
+				btn_down_index = index;
+				btn_down_increasing = ( btn_buttons[i][BTN_TYPE] == BTN_UP_TYPE );
+				btn_adjust_up_down_value( index, btn_down_increasing )
+			end;
+			break
+		end;
+		i = i + 1
+	end
+end;
+
+# ---------------------------------------------------------------------
+# public functions
+
+sub 
+	btn_add_toggle_button( string label1, string label2, bool value, picture pic ) 
+begin
+	btn_values.add( int( value ) );
+	int i = btn_values.count();
+	btn_parameters.resize( i );
+	
+	array<string> temp[2];
+	temp[1] = label1;
+	temp[2] = label2;
+	btn_toggle_labels.add( temp );
+	
+	text t = new text;
+	t.set_height( btn_toggle_height );
+	t.set_width( btn_toggle_width );
+	t.set_background_color( btn_button_color );
+	t.set_font_color( btn_button_label_color );
+	t.set_font_size( btn_button_label_font_size );
+	t.set_caption( temp[int( value ) + 1] );
+	t.redraw();
+	btn_texts.add( t );
+	pic.add_part( t, btn_x_position, btn_y_position - btn_toggle_height / 2 );
+	pic.set_part_on_top( pic.part_count(), true );
+	
+	array<double> button[6];
+	button[BTN_MIN_X] = btn_x_position - btn_toggle_width / 2;
+	button[BTN_MAX_X] = btn_x_position + btn_toggle_width / 2;
+	button[BTN_MAX_Y] = btn_y_position;
+	button[BTN_MIN_Y] = btn_y_position - btn_toggle_height;
+	button[BTN_TYPE] = BTN_TOGGLE_TYPE;
+	button[BTN_INDEX] = i;
+	btn_buttons.add( button );
+	
+	btn_y_position = btn_y_position - btn_toggle_height - btn_spacing
+end;
+
+sub 
+	btn_add_up_down_button( string title, double value, double step, double minimum, double maximum, picture pic ) 
+begin
+	btn_values.add( value );
+	int i = btn_values.count();
+	
+	btn_parameters.resize( i );
+	btn_parameters[i][BTN_STEP] = step;
+	btn_parameters[i][BTN_MIN] = minimum;
+	btn_parameters[i][BTN_MAX] = maximum;
+	
+	btn_toggle_labels.resize( i );
+	
+	text t = new text;
+	t.set_font_size( btn_title_font_size );
+	t.set_font_color( btn_title_color );
+	t.set_caption( title );
+	t.redraw();
+	pic.add_part( t, btn_x_position, btn_y_position - t.height() / 2 );
+	pic.set_part_on_top( pic.part_count(), true );
+	btn_y_position = btn_y_position - t.height() - btn_up_down_spacing;
+	
+	t = new text;
+	t.set_font_size( btn_value_font_size );
+	t.set_font_color( btn_value_color );
+	t.set_caption( string( value ) );
+	t.redraw();
+	btn_texts.add( t );
+	pic.add_part( t, btn_x_position, btn_y_position - t.height() / 2 );
+	pic.set_part_on_top( pic.part_count(), true );
+	btn_y_position = btn_y_position - t.height() - btn_up_down_spacing;
+	
+	btn_up_down_texts.resize( i );
+	btn_up_down_texts[i].resize( 2 );
+	btn_up_down_texts[i][BTN_DECREASE] = btn_create_up_down_button( "-" );
+	btn_up_down_texts[i][BTN_INCREASE] = btn_create_up_down_button( "+" );
+	
+	array<double> button[7];
+	button[BTN_MIN_X] = btn_x_position - btn_up_down_size - btn_up_down_middle_space / 2;
+	button[BTN_MAX_X] = btn_x_position - btn_up_down_middle_space / 2;
+	button[BTN_MAX_Y] = btn_y_position;
+	button[BTN_MIN_Y] = btn_y_position - btn_up_down_size;
+	button[BTN_TYPE] = BTN_DOWN_TYPE;
+	button[BTN_INDEX] = i;
+	btn_buttons.add( button );
+	pic.add_part( btn_up_down_texts[i][BTN_DECREASE], btn_x_position - btn_up_down_size / 2 - btn_up_down_middle_space / 2, btn_y_position - btn_up_down_size / 2 );
+	pic.set_part_on_top( pic.part_count(), true );
+	
+	button[BTN_MIN_X] = btn_x_position + btn_up_down_middle_space / 2;
+	button[BTN_MAX_X] = btn_x_position + btn_up_down_middle_space / 2 + btn_up_down_size;
+	button[BTN_TYPE] = BTN_UP_TYPE;
+	btn_buttons.add( button );
+	pic.add_part( btn_up_down_texts[i][BTN_INCREASE], btn_x_position + btn_up_down_size / 2 + btn_up_down_middle_space / 2, btn_y_position - btn_up_down_size / 2 );
+	pic.set_part_on_top( pic.part_count(), true );
+	btn_y_position = btn_y_position - btn_up_down_size - btn_spacing
+end;
+
+sub 
+	array<int,1> btn_update_mouse( int down_index, int up_index, int axis_index ) 
+begin
+	array<int> changes[0];
+	if ( btn_state == BTN_REPEATING ) then
+		loop 
+		until 
+			btn_response_count == response_manager.response_data_count() 
+		begin
+			btn_response_count = btn_response_count + 1;
+			response_data d = response_manager.get_response_data( btn_response_count );
+			if ( d.button() == up_index ) then
+				btn_state = BTN_MONITORING
+			end
+		end
+	end;
+	if ( btn_state == BTN_REPEATING ) then
+		if ( clock.time() >= btn_repeat_time ) then
+			btn_repeat_time = btn_repeat_time + btn_repeat_period;
+			btn_adjust_up_down_value( btn_down_index, btn_down_increasing );
+			changes.add( btn_down_index )
+		end
+	else
+		loop 
+		until 
+			btn_response_count == response_manager.response_data_count() 
+		begin
+			btn_response_count = btn_response_count + 1;
+			response_data d = response_manager.get_response_data( btn_response_count );
+			if ( d.button() == down_index ) then
+				mouse m = response_manager.get_mouse( axis_index );
+				m.poll();
+				btn_update( m.x(), m.y(), changes );
+				btn_response_count = response_manager.response_data_count();
+				break;
+			end
+		end
+	end;
+	return changes
+end;

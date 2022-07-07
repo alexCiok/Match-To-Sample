@@ -1,0 +1,39 @@
+# --- sub update_param
+
+sub
+	double update_param( double param, int button, int dec_button, int inc_button, double p_inc, double p_min, double p_max )
+begin
+	if ( button == inc_button ) then
+		param = param + p_inc;
+		if ( param > p_max ) then
+			param = p_max;
+		end;
+	elseif ( button == dec_button ) then
+		param = param - p_inc;
+		if ( param < p_min ) then
+			param = p_min;
+		end;
+	end;
+	return param
+end;
+
+# --- sub status_caption
+
+sub
+	string status_caption( array<string,1>& captions, array<double,1>& values )
+begin
+	string status = "";
+	loop
+		int i = 1 
+	until
+		i > captions.count() || i > values.count()
+	begin
+		status.append( captions[i] + " " );
+		status.append( string ( round( values[i], 2 ) ) );
+		if ( i < captions.count() ) then
+			status.append( "\n" );
+		end;
+		i = i + 1;
+	end;
+	return status
+end;

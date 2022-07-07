@@ -1,0 +1,42 @@
+trial {
+	trial_duration = forever;
+	trial_type = specific_response;
+	terminator_button = 1;
+	
+	stimulus_event {
+		picture { 
+			text { 
+				caption = "Rest"; 
+				preload = false;
+			} rest_text; 
+			x = 0; 
+			y = 50; 
+			
+			text { 
+				caption = "Progress";
+				preload = false;
+			} progress_text; 
+			x = 0; 
+			bottom_y = -25;
+			
+			box { 
+				height = 10; 
+				width = 25;
+				color = 50, 50, 50;
+			} full_box; 
+			x = 0; 
+			top_y = -25;
+			
+			box { 
+				height = 10; 
+				width = 25;
+				color = 255, 0, 0;
+			} progress_box; 
+			x = 0;  
+			top_y = -25;
+		} rest_pic;
+		code = "Pause";
+	} rest_event;
+} rest_trial;
+
+

@@ -1,0 +1,30 @@
+Scenario - Match to Sample
+Logfile written - 06/23/2022 13:10:00
+
+Subject	Trial	Event Type	Code	event_cond(str)	block_name(str)	block_number(num)	trial_number(num)	study_grid(str)	dist_grid(str)	study_side(str)	delay(num)	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+practicebg	1	Picture	ITI	ITI								333	0	1	1998	1	0	next	other	0
+practicebg	2	Picture	Study	Study								2331	0	1	9990	1	0	next	other	0
+practicebg	4	Picture	Stim;Practice;0;1;121121121;221111121;Left;0	Stim	Practice	0	1	121121121	221111121	Left	0	42458	0	1	39961	1	0	next	hit	4
+practicebg	4	Response	1									55708	13250	1
+practicebg	5	Picture	ITI	ITI								82419	0	1	1998	1	0	next	other	0
+practicebg	6	Picture	Study	Study								84417	0	1	9990	1	0	next	other	0
+practicebg	8	Picture	Stim;Practice;0;2;211221112;211211122;Right;0	Stim	Practice	0	2	211221112	211211122	Right	0	124544	0	1	39961	1	0	next	hit	8
+practicebg	8	Response	2									137079	12534	1
+practicebg	9	Picture	ITI	ITI								164505	0	1	1998	1	0	next	other	0
+practicebg	10	Picture	Study	Study								166503	0	1	9990	1	0	next	other	0
+practicebg	12	Picture	Stim;Practice;0;3;111221211;112121211;Right;0	Stim	Practice	0	3	111221211	112121211	Right	0	206631	0	1	39961	1	0	next	hit	12
+practicebg	12	Response	2									220319	13688	1
+practicebg	13	Picture	ITI	ITI								246592	0	1	1998	1	0	next	other	0
+practicebg	14	Picture	Study	Study								248590	0	1	9990	1	0	next	other	0
+practicebg	16	Picture	Stim;Practice;0;4;121212211;121211221;Left;0	Stim	Practice	0	4	121212211	121211221	Left	0	288717	0	1	39961	1	0	next	hit	16
+practicebg	16	Response	1									306199	17482	1
+practicebg	17	Picture	ITI	ITI								328678	0	1	1998	1	0	next	other	0
+practicebg	18	Picture	Study	Study								330676	0	1	9990	1	0	next	other	0
+practicebg	20	Picture	Stim;Practice;0;5;121111212;111211212;Left;0	Stim	Practice	0	5	121111212	111211212	Left	0	370803	0	1	39961	1	0	next	hit	20
+practicebg	20	Response	1									382224	11421	1
+practicebg	21	Picture	ITI	ITI								410764	0	1	1998	1	0	next	other	0
+practicebg	22	Picture	Study	Study								412762	0	1	9990	1	0	next	other	0
+practicebg	24	Picture	Stim;Practice;0;6;211221211;111222211;Right;0	Stim	Practice	0	6	211221211	111222211	Right	0	452890	0	1	39961	1	0	next	hit	24
+practicebg	24	Response	2									467399	14510	1
+practicebg	25	Quit										956959	464108	NA

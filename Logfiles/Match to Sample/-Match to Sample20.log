@@ -1,0 +1,12 @@
+Scenario - Match to Sample
+Logfile written - 06/24/2022 14:39:13
+
+Subject	Pulse	Event Type	Code	event_cond(str)	block_name(str)	block_number(num)	trial_number(num)	study_grid(str)	dist_grid(str)	study_side(str)	delay(num)	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+	0	Response	1									2804	2804	1
+	0	Response	2									5729	5729	1
+	0	Response	1									40885	40885	1
+	0	Response	2									43338	43338	1
+	0	Response	1									45775	45775	1
+	1	Pulse	84									90150	90150	1
+	1	Quit										168827	168827	NA

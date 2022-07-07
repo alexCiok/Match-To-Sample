@@ -1,0 +1,33 @@
+trial {
+	stimulus_event {
+		picture {
+			box { 
+				width = 1; 
+				height = 1; 
+			} bg_box; 	
+			x = 0; 
+			y = 0;
+			
+			text { 
+				caption = "Recall Listing"; 
+				preload = false;
+			} entered_text; 
+			x = 0; 
+			y = 0;
+			
+			text { 
+				caption = "Recall Prompt"; 
+				preload = false;
+			} response_text; 
+			x = 0; 
+			y = 0;
+				
+			text { 
+				caption = " "; 
+			} input_text; 
+			x = 0; 
+			y = 0;
+		} input_pic;
+		code = "Input";
+	} input_event;
+} input_trial;

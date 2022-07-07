@@ -1,0 +1,41 @@
+# --- sub setup_free_recall
+
+sub
+	setup_free_recall( string list_heading, string prompt, rgb_color list_color, rgb_color font_color )
+begin
+	# CONSTANTS
+	double BOX_WIDTH = 60.0;
+	double LIST_FONT_SIZE = 6.0;
+	int BOX_PART = 1;
+	int LIST_PART = 2;
+	int PROMPT_PART = 3;
+	int INPUT_PART = 4;
+	
+	# Setup the background box
+	bg_box.set_height( used_screen_height );
+	bg_box.set_width( BOX_WIDTH );
+	bg_box.set_color( list_color );
+	input_pic.set_part_x( BOX_PART, -used_screen_width/2.0, input_pic.LEFT_COORDINATE );
+		
+	# Now setup the list text
+	entered_text.set_max_text_width( BOX_WIDTH );
+	entered_text.set_max_text_height( used_screen_height );
+	entered_text.set_font_size( LIST_FONT_SIZE );
+	entered_text.set_background_color( list_color );
+	entered_text.set_font_color( font_color );
+	input_pic.set_part_x( LIST_PART, -(used_screen_width/2.0) + (BOX_WIDTH/2.0) );
+	input_pic.set_part_y( LIST_PART, used_screen_height/2.0, input_pic.TOP_COORDINATE );
+	entered_text.set_caption( list_heading + "\n", true );
+	
+	# Now setup the response caption
+	response_text.set_max_text_width( used_screen_width - ( BOX_WIDTH * 1.2 ) );
+	response_text.set_max_text_height( used_screen_height/4.0 );
+	input_pic.set_part_x( PROMPT_PART, (BOX_WIDTH/2.0) );
+	input_pic.set_part_y( PROMPT_PART, (used_screen_height/8.0) );
+	response_text.set_caption( prompt + "\n", true );
+	
+	# Now setup the input caption
+	input_text.set_max_text_width( used_screen_width - ( BOX_WIDTH * 1.2 ) );
+	input_pic.set_part_x( INPUT_PART, BOX_WIDTH/2.0 );
+	input_text.set_caption( " ", true );
+end;

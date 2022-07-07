@@ -1,0 +1,27 @@
+Scenario - Match to Sample
+Logfile written - 06/23/2022 12:08:57
+
+Subject	Trial	Event Type	Code	event_cond(str)	block_name(str)	block_number(num)	trial_number(num)	study_grid(str)	dist_grid(str)	study_side(str)	delay(num)	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+test1	1	Picture	ITI	ITI								499	0	1	1998	1	0	next	other	0
+test1	2	Picture	Study	Study								2497	0	1	9990	1	0	next	other	0
+test1	4	Picture	Stim;Practice;0;1;221212111;122212111;Left;0	Stim	Practice	0	1	221212111	122212111	Left	0	42625	0	1	39961	1	0	next	miss	0
+test1	5	Picture	ITI	ITI								82585	0	1	1998	1	0	next	other	0
+test1	6	Picture	Study	Study								84583	0	1	9990	1	0	next	other	0
+test1	8	Picture	Stim;Practice;0;2;112112111;211112111;Left;0	Stim	Practice	0	2	112112111	211112111	Left	0	124711	0	1	39961	1	0	next	incorrect	7
+test1	8	Response	2									132031	7320	1
+test1	9	Picture	ITI	ITI								164672	0	1	1998	1	0	next	other	0
+test1	10	Picture	Study	Study								166670	0	1	9990	1	0	next	other	0
+test1	12	Picture	Stim;Practice;0;3;111112221;211112211;Left;0	Stim	Practice	0	3	111112221	211112211	Left	0	206797	0	1	39961	1	0	next	hit	11
+test1	12	Response	1									219690	12892	1
+test1	13	Picture	ITI	ITI								246758	0	1	1998	1	0	next	other	0
+test1	14	Picture	Study	Study								248756	0	1	9990	1	0	next	other	0
+test1	16	Picture	Stim;Practice;0;4;121112112;221111112;Left;0	Stim	Practice	0	4	121112112	221111112	Left	0	288883	0	1	39961	1	0	next	incorrect	15
+test1	16	Response	2									297667	8784	1
+test1	17	Picture	ITI	ITI								328844	0	1	1998	1	0	next	other	0
+test1	18	Picture	Study	Study								330842	0	1	9990	1	0	next	other	0
+test1	20	Picture	Stim;Practice;0;5;111112211;112112111;Right;0	Stim	Practice	0	5	111112211	112112111	Right	0	370970	0	1	39961	1	0	next	incorrect	19
+test1	20	Response	1									380862	9892	1
+test1	21	Picture	ITI	ITI								410931	0	1	1998	1	0	next	other	0
+test1	22	Picture	Study	Study								412929	0	1	5574	1	0	next	other	0
+test1	22	Quit										413423	494	NA

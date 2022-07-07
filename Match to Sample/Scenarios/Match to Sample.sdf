@@ -1,0 +1,7 @@
+# Match to Sample
+
+event_pair_table my_rm_table( block_name1, block_number1, trial_number1, study_grid1, dist_grid1, study_side1, delay1, code2, rm_type, time_diff )
+good_pairs(rm_all) :: event_cond1 == "Stim"
+
+print"Block Name\tBlock Number\tTrial Number\tStudy Grid\tDistractor Grid\tCorrect Side\tDelay\tResponse\tAccuracy\tRT"
+print my_rm_table( good_pairs, "\t", "\n", no_header_row )
