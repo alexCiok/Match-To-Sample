@@ -8,6 +8,6 @@ Implements :
 
 TODO implementations :
 - Control over datasets presented during practice trials
-- Present instruction screen before practice
+- Present instruction screen before practice (create practice version under folder 'Match to Sample') ----DONE
 - Force choices (L/R) for practice trials 
 - Create practice datasets (.py)
