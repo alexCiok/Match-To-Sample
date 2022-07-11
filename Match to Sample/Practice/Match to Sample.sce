@@ -40,8 +40,7 @@ begin;
 trial {
 	trial_duration = forever;
 	trial_type = specific_response;
-	terminator_button = 1,2;
-	
+	terminator_button = 1,2;	
 		
 	picture { 
 		text { 
@@ -139,15 +138,15 @@ trial {
 
 
 
-TEMPLATE "../../Library/lib_rest.tem";
+TEMPLATE "../Library/lib_rest.tem";
 
 
 # ----------------------------- PCL Program -----------------------------
 begin_pcl;
 
 
-include_once "../../Library/lib_visual_utilities.pcl";
-include_once "../../Library/lib_utilities.pcl";
+include_once "../Library/lib_visual_utilities.pcl";
+include_once "../Library/lib_utilities.pcl";
 
 # --- Constants ---
 
@@ -409,7 +408,7 @@ begin
 	else
 		# If no splits and no multi-screen, present the entire caption at once
 		full_size_word_wrap( instruct_string, font_size, char_wrap, instruct_text );
-		#instruct_trial.present();
+		instruct_trial.present();  #AC UN-COMMENTED
 		#int pulses = 0; # start with 1st pulse
 		#int cond = 0;
 			#loop until cond == 1 begin
@@ -469,34 +468,44 @@ end;
 # 4-5-6
 # 7-8-9
 array<int> grid_seq[0][0];
-array<int> poss_vals[0];####################AC#####################
+array<int> poss_vals[0];
+####################AC#####################
  
 int cols = parameter_manager.get_int( "Grid Columns" );
 input_file study_data = new input_file;
-
+input_file distract_data = new input_file;
 #Access appropriate datasets based on grid size (TODO: make this dynamic)
 if cols == 3 then 
-	study_data.open("dataset_3.txt");
+	study_data.open("prac_3.txt");
+	distract_data.open("prac_3_distr.txt");
 end;
+
 if cols == 5 then
-	study_data.open("dataset_5.txt");
+	study_data.open("prac_5.txt");
+	distract_data.open("prac_5_distr.txt");
 end;
 
 int count1 = 0;
 int array_fill_count = 1;
-array <int> int_study[30][0];
+array <int> int_study[6][0];
+array <int> int_distr[6][0];
+
 int val;
+int distr;
 loop until 
-	count1 == 30
+	count1 == 6
 begin
 	count1 = count1+1;
 	array_fill_count = 0;
 	loop until
 	array_fill_count == cols*cols
 	begin
-		array_fill_count = array_fill_count+1;
+		array_fill_count = array_fill_count+1;		
+		distr = distract_data.get_int();
 		val = study_data.get_int();
+		
 		int_study[count1].add(val);
+		int_distr[count1].add(distr);
 	end;
 end;
 
@@ -511,7 +520,7 @@ elseif ( int_array_max( poss_vals ) > grid_pos.count() - 1 ) then
 end;
 
 ##################AC##############################
-array<bool> been_used[30]; #initialized to false by default
+array<bool> been_used[6]; #initialized to false by default
 sub
 	make_sequence( array<int,2>& sequence )
 begin
@@ -519,10 +528,10 @@ begin
 	sequence[1].resize( grid_pos.count() );
 	
 	#ensure grid hasn't been shown already
-	int rand_idx = random(1,30);
+	int rand_idx = random(1,6);
 	loop until !(been_used[rand_idx])
 	begin
-		rand_idx = random(1, 30);
+		rand_idx = random(1, 6);
 	end;
 	been_used[rand_idx] = true;	#update to reflect that grid has been shown	
 	sequence[1].assign(int_study[rand_idx]);
@@ -841,10 +850,7 @@ end;
 #####Changes made######
 	pic.present();
 
-	int pulses = 0;
-	int cond = 0;
-	loop until cond == 1 begin
-	if (pulse_manager.main_pulse_count() > pulses ) then # exchange 5 to pulses for real pulse
+ # exchange 5 to pulses for real pulse
 	#if (pulse_manager.main_pulse_count() > 5 ) then # Wait to 5th pulse to start
 	
 
@@ -871,10 +877,6 @@ rest_Block.present();
 present_instructions( get_lang_item( lang, "Completion Screen Caption" ) );
 ##################################################################################
 
-
-		cond = cond+1;
-	end;	
-end;
 
 # --- Print Summary Stats --- #
 
