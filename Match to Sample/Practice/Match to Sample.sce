@@ -480,21 +480,12 @@ input_file study_data = new input_file;
 input_file distract_data = new input_file;
 #Access appropriate datasets based on grid size (TODO: make this dynamic)
 if cols == 3 then 
-<<<<<<< HEAD:Match to Sample/Practice/Match to Sample_practice.sce
 	study_data.open("prac_3.txt");
 	distract_data.open("prac_3_distr.txt");
 end;
 
 if cols == 5 then
 	study_data.open("prac_5.txt");
-=======
-	study_data.open("prac_3.txt");
-	distract_data.open("prac_3_distr.txt");
-end;
-
-if cols == 5 then
-	study_data.open("prac_5.txt");
->>>>>>> 1b840eac3b8be507de7841d4b7cd47c001cd6107:Match to Sample/Practice/Match to Sample.sce
 	distract_data.open("prac_5_distr.txt");
 end;
 
