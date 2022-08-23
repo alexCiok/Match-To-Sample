@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<experiment_text language="English">
+  <map name="default">
+    <item key="Instructions"> Which object matches what you just saw?
+
+Press the left or right button to respond.
+
+When there is a "+", just look at it.
+
+
+</item>
+    <item key="No Instructions Caption">Press either mouse button to begin the next part.</item>
+    <item key="Rest Screen Caption">Take a break!
+
+Click the left mouse button to begin when you are ready to move on to the next part.</item>
+    <item key="Progress Bar Caption">Progress:</item>
+    <item key="Practice Caption">You will start by doing a few examples for practice.</item>
+    <item key="Practice Complete Caption">Practice trials complete.</item>
+    <item key="Completion Screen Caption">This task is done. Good job! 
+
+Please wait for further instructions. </item>
+    <item key="Block Complete Caption">You have completed [BLOCK_NUMBER] block(s). There are [TOTAL_BLOCKS] blocks in the experiment. 
+
+Press either mouse button to move on.</item>
+    <item key="Next Screen Caption">Click the right mouse button to continue.</item>
+    <item key="Previous Screen Caption">Click the left mouse button to go back.</item>
+    <item key="Multi-Screen Start Experiment Caption">Click the right mouse button to start the experiment when you are ready.</item>
+    <item key="Start Experiment Caption">Click either mouse button to start the experiment when you are ready.</item>
+    <item key="Word Wrap Mode">Word</item>
+  </map>
+</experiment_text>
